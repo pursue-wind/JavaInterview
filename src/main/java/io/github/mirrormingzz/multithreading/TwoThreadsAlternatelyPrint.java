@@ -19,7 +19,7 @@ public class TwoThreadsAlternatelyPrint {
 
 
     /**
-     * 使用 wait notify
+     * 解法1：使用 wait notify
      */
     public static void solution1() {
         Runnable printer = () -> {
@@ -38,14 +38,15 @@ public class TwoThreadsAlternatelyPrint {
                 }
             }
         };
-        CompletableFuture<Void> t1 = CompletableFuture.runAsync(printer);
-        CompletableFuture<Void> t2 = CompletableFuture.runAsync(printer);
-        CompletableFuture.allOf(t1, t2).join();
+        CompletableFuture.allOf(
+                CompletableFuture.runAsync(printer),
+                CompletableFuture.runAsync(printer)
+        ).join();
     }
 
 
     /**
-     * 使用 synchronized
+     * 解法2：使用 synchronized
      */
     public static void solution2() {
 
@@ -71,7 +72,7 @@ public class TwoThreadsAlternatelyPrint {
     }
 
     /**
-     * 使用 synchronized
+     * 解法3：使用 Java8 CompletableFuture synchronized
      */
     public static void solution3() {
         CompletableFuture<Void> t1 = CompletableFuture.runAsync(() -> {
