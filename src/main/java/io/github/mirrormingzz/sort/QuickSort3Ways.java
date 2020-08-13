@@ -83,8 +83,8 @@ public class QuickSort3Ways {
         }
 
         swap(arr, l, lt);
-        quickSort3Ways(arr, l, lt - 1);
-        quickSort3Ways(arr, gt, r);
+        quickSort3WaysWithPrint(arr, l, lt - 1);
+        quickSort3WaysWithPrint(arr, gt, r);
     }
 
     /**
