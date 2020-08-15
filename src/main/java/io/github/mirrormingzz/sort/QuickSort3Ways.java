@@ -50,6 +50,10 @@ public class QuickSort3Ways {
         System.out.println(Arrays.toString(arr));
     }
 
+
+    //~ 下面是带打印的版本
+    //==========================================================================================================================================
+
     static void quickSort3WaysWithPrint(int[] arr) {
         quickSort3WaysWithPrint(arr, 0, arr.length - 1);
     }
@@ -113,5 +117,4 @@ public class QuickSort3Ways {
         System.err.println();
         System.err.println("============================================");
     }
-
 }
